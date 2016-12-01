@@ -1,0 +1,80 @@
+.qqface-container {
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+.qqface-container .swiper-pagination{
+  bottom: 0;
+}
+.qqface-container .swiper-slide {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+.qqface-box {
+  width: 100%;
+  height: 100%;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start;
+  -webkit-align-content: flex-start;
+  align-content: flex-start;
+}
+.qqface-box .box {
+  width: 16.666666%;
+  height: 31%;
+  display: -webkit-box;
+  display: box;
+  -webkit-box-align: center;
+  box-align: center;
+  -webkit-box-pack: center;
+  box-pack: center;
+}
+.qqface-box .box img {
+  width: 50%;
+  display: block;
+}
+.qqface-textarea-box{
+  position: relative;
+  overflow: hidden;
+}
+.qqface-textarea-box>textarea{
+  display: none;
+}
+.qqface-textarea-box>.qqface-textarea{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  text-align: left;
+  line-height: 1.4em
+}
+.qqface-textarea-box>.qqface-textarea:empty:before{
+    content: attr(placeholder);
+    color:#bbb;
+}
+.qqface-textarea-box>.qqface-textarea:focus:before{
+    content:none;
+}
+.qqface-img{
+  width: 1.4em;
+}
+.qqface-textarea-text{
+  display: none;
+}
