@@ -5,15 +5,14 @@
     qqface: function (opt) {
       var dom = this;
       var defaults = {
-        facebox: '.qqfacebox',
-        facebtn: '.qqfacebtn',
-        textarea: '.qqfacetextarea',
+        facebtn: '.face-btn',
+        textarea: '.face-textarea',
         imgPath: 'qqface/face/',
         contenteditable: false
       };
 
       opt = $.extend(defaults, opt);
-      dom.hide().html('<div class="swiper-container"><div class="swiper-wrapper qqface-mian"></div><div class="swiper-pagination"></div></div>');
+      dom.hide().html('<div class="swiper-container qqface-container"><div class="swiper-wrapper qqface-mian"></div><div class="swiper-pagination"></div></div>');
 
       for (i in face) {
         if (i % 18 == 0) {
@@ -49,7 +48,7 @@
           var _class = $(this).attr('class');
           var _placeholder = $(this).attr('placeholder');
           var _name = $(this).attr('name');
-          $(this)[0].outerHTML = '<div class="qqface-textarea-box ' + _class + '"><textarea name="' + _name + '"></textarea><div class="qqface-textarea" placeholder="' + _placeholder + '" contenteditable="true"></div><div class="qqface-textarea-text"></div></div>';
+          $(this)[0].outerHTML = '<div class="qqface-textarea-box ' + _class + '"><textarea' + (_name ? (' name="' + _name + '"') : '') + '></textarea><div class="qqface-textarea"' + (_placeholder ? (' placeholder="' + _placeholder + '"') : '') + ' contenteditable="true"></div><div class="qqface-textarea-text"></div></div>';
         });
         $('.qqface-textarea-box>.qqface-textarea').on('input', function (e) {
           $(this).siblings('.qqface-textarea-text').html($(this).html().replace(/<img src[=]"[^"]*" text="([^"]*)" class[=]"qqface-img">/g, '\\$1'));
@@ -100,7 +99,6 @@
 
             if (end < lastvalue.length) {
               for (l = end - 1, flag = true; flag && l > start && end - l < 5; l--) {
-                console.log(l)
                 if (lastvalue.slice(l, l + 1) == '\\') {
                   for (i = 0; flag && i < face.length; i++) {
                     if (face[i] == lastvalue.slice(l + 1, l + 1 + face[i].length)) {

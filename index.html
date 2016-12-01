@@ -8,6 +8,7 @@
   <meta name="keywords" content="jquery.mobileqqface">
   <meta name="description" content="jquery.mobileqqface">
   <meta http-equiv="Cache-Control" content="no-siteapp"/>
+  <link href="http://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
   <!-- 必要 start -->
   <script type="text/javascript" src="http://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
   <link rel="stylesheet" type="text/css" href="http://cdn.bootcss.com/Swiper/3.4.0/css/swiper.min.css"/>
@@ -16,148 +17,131 @@
   <script type="text/javascript" src="qqface/jquery.qqface.js"></script>
   <!-- 必要 end -->
   <style>
-    .mr-vd-main-bot-tex {
-      position: relative;
+    html, body{
+      min-height: 100%;
+      display: -webkit-box;
+      display: box;
     }
-
-    .sl-vd-facebtn img {
-      width: 1rem;
+    body{
+      width: 100%;
+      -webkit-box-orient: vertical;
+      box-orient: vertical;
+    }
+    .ub {
+      display: -webkit-box;
+      display: box;
+    }
+    .ubf1 {
+      -webkit-box-flex: 1;
+      box-flex: 1;
+    }
+    .uov {
+      -webkit-box-orient: vertical;
+      box-orient: vertical;
+    }
+    .uac {
+      -webkit-box-align: center;
+      box-align: center;
+    }
+    .uae {
+      -webkit-box-align: end;
+      box-align: end;
+    }
+    .upc {
+      -webkit-box-pack: center;
+      box-pack: center;
+    }
+    .upe {
+      -webkit-box-pack: end;
+      box-pack: end;
+    }
+    .face-textarea{
+      width: 100%;
+    }
+    .face-contenteditable-textarea{
+      width: 100%;
+      min-height: 100px;
+      border: solid 1px #CCC;
+      border-radius: 5px;
+    }
+    .face-contenteditable-textarea .qqface-textarea{
+      padding: 5px;
+    }
+    .face-btn, .face-btn:focus, .face-btn:hover{
+      color: #F60;
+      text-decoration: none;
+    }
+    .face-btn img{
+      width: 1.2em;
       display: block;
     }
-
-    .sl-vd-facebox {
+    .face-box {
       position: absolute;
-      left: 1.5rem;
-      top: 1rem;
-      width: 18rem;
-      height: 10rem;
+      left: 0;
+      top: 0;
+      width: 306px;
+      height: 170px;
       background-color: #FFF;
       border: solid 1px #D7D7D7;
+      z-index: 10;
     }
   </style>
 </head>
 <body>
-<header class="wrap header fs60"><a href="#" class="return-h cwhite"><img src="img/top_return.png">
-  <h2>影片详情</h2>
-</a></header>
-<section class="wrap mr-vd-main-top sizing">
-  <div class="mr-vd-main-top-tit mr-ub mr-uac">
-    <div class="mr-vd-tit-img"></div>
-    <div class="mr-vd-tit-imgr">
-      <p class="fs40 cgray1">夏至未至</p>
-      <p class="fs30 cgray2">下载数：10000万次</p>
-      <p class="fs30 cgray2">评论：44684万条</p>
-      <p class="fs30 cgray2">分享时间：2016-02-31</p>
-      <div><a href="#" class="fs30 cgray2 mr-vd-tit-icon1"><img src="img/ypxq_fenxiang_icon.png" alt=""/>&nbsp;分享</a>
-        &nbsp;&nbsp; <a href="#" class="fs30 cgray2 mr-vd-tit-icon2"><img src="img/ypxq_jubao_icon.png" alt=""/>&nbsp;举报</a>
-      </div>
-    </div>
+<div class="container">
+  <h3 class="text-center">基于jQuery和Swiper的手机QQ表情的插件</h3>
+
+  <h4 class="page-header">普通的textarea输入框</h4>
+  <div>
+    <textarea rows="4" class="face-textarea" placeholder="请选择表情和输入文字"></textarea>
   </div>
-  <div class="mr-vd-main-top-text1"><span class="fs30 cgray2">夏至未至下载数10000万次评论44684万条分享时间夏至未至下载数万次评论夏至未至下载数10000万次评论夏至未至下载数10000万次评论夏至未至下载数10000万次评论44684万条分享时间夏至未至下载数万次评论夏至未至下载数10000万次评论夏至未至下载数10000万次评论 </span>
-    <i><img src="img/ypxq_expand_icon.png" alt=""/></i></div>
-  <div class="mr-vd-main-top-text2 hide"><span class="fs30 cgray2">夏至未至下载数10000万次评论44684万条分享时间夏至未至下载数万次评论夏至未至下载数10000万次评论夏至未至下载数10000万次评论夏至未至下载数10000万次评论44684万条分享时间夏至未至下载数万次评论夏至未至下载数10000万次评论夏至未至下载数10000万次评论 </span>
-    <i><img src="img/ypxq_packup_icon.png" alt=""/></i></div>
-  <a href="#" class="mr-vd-main-top-btn fs40">下载</a></section>
-<section class="wrap mr-vd-main-bottom sizing mt26">
-  <textarea maxlength="300" class="cgray3 fs30 sizing mr-vd-textarea" placeholder="说点什么吧…"></textarea>
-  <div class="mr-ub mr-vd-main-bot-tex">
-    <div class="mr-ub fs28 cbule mr-ub mr-uac sl-vd-facebtn"><img src="qqface/face/0.png">
+  <div style="display:inline-block;">
+    <a href="javascript:;" class="ub uac face-btn textarea">
+      <img src="qqface/face/0.png">
       <div>添加表情</div>
-    </div>
-    <div class="mr-ubf1"></div>
-    <div><span class="cgray3 fs28">0/300字数</span>
-      <button class="cwhite fs28">发表</button>
-    </div>
-    <div class="sl-vd-facebox"></div>
+    </a>
   </div>
-  <ul class="mr-vd-main-ul">
-    <li class="bdt1 bdb1 mr-ub">
-      <div class="mr-vd-main-ul-tit"></div>
-      <div class="mr-ubf1">
-        <div class="mr-ub">
-          <div class="cbule fs36 mr-ubf1">美女</div>
-          <div class="mr-ub fs28 cgray3 sl-ub">
-            <div><img src="img/wdzpd_dianzan_icon.png" alt=""/> <i>20</i></div>
-            &nbsp;&nbsp;&nbsp;
-            <div><img src="img/wdzpd_cai_icon.png" alt=""/> <i>20</i></div>
-          </div>
-        </div>
-        <p class="fs36 cgray1 mt16 qqface qwerq">哈哈哈。逗逼！</p>
-        <div class="mr-ub fs28 mt26">
-          <div class="cgray3 fs30 mr-ubf1">2016-02-15 18:30</div>
-          <div class="cbule fs30 mr-vd-btn-huifu1">回复</div>
-        </div>
-        <div class="mr-vd-textarea2 hide">
-          <textarea maxlength="300" class="cgray3 fs30 sizing mr-vd-textarea">说点什么吧…</textarea>
-          <div class="mr-ub mr-upe"><span class="cgray3 fs28">0/300字数</span> <a href="#"
-                                                                                class="mr-vd-btn-huifu fs30">回复</a> <a
-              href="#" class="mr-vd-btn-quxiao fs30">取消</a></div>
-        </div>
-      </div>
-    </li>
-    <li class="bdb1 mr-ub">
-      <div class="mr-vd-main-ul-tit"></div>
-      <div class="mr-ubf1">
-        <div class="mr-ub">
-          <div class="cbule fs36 mr-ubf1">美女</div>
-          <div class="mr-ub fs28 cgray3 sl-ub">
-            <div><img src="img/wdzpd_dianzan_icon.png" alt=""/> <i>20</i></div>
-            &nbsp;&nbsp;&nbsp;
-            <div><img src="img/wdzpd_cai_icon.png" alt=""/> <i>20</i></div>
-          </div>
-        </div>
-        <p class="fs36 cgray1 mt16 qqface">\微笑\撇嘴\色\发呆哈哈哈。逗逼！说点什么吧逗逼！说点什么吧逗逼！说点什么吧</p>
-        <div class="mr-ub fs28 mt26">
-          <div class="cgray3 mr-ubf1">2016-02-15 18:30</div>
-          <div class="cbule mr-vd-btn-huifu1">回复</div>
-        </div>
-        <div class="mr-vd-textarea2 hide">
-          <textarea maxlength="300" class="cgray3 fs30 sizing mr-vd-textarea">说点什么吧…</textarea>
-          <div class="mr-ub mr-upe"><span class="cgray3 fs28">0/300字数</span> <a href="#"
-                                                                                class="mr-vd-btn-huifu fs30">回复</a> <a
-              href="#" class="mr-vd-btn-quxiao fs30">取消</a></div>
-        </div>
-      </div>
-    </li>
-    <li class="bdb1 mr-ub">
-      <div class="mr-vd-main-ul-tit"></div>
-      <div class="mr-ubf1">
-        <div class="mr-ub">
-          <div class="cbule fs36 mr-ubf1">美女</div>
-          <div class="mr-ub fs28 cgray3 sl-ub">
-            <div><img src="img/wdzpd_dianzan_icon.png" alt=""/> <i>20</i></div>
-            &nbsp;&nbsp;&nbsp;
-            <div><img src="img/wdzpd_cai_icon.png" alt=""/> <i>20</i></div>
-          </div>
-        </div>
-        <p class="fs36 cgray1 mt16 qqface">回复@美女：哈哈哈。\撇嘴逗逼！</p>
-        <div class="mr-ub fs28 mt26">
-          <div class="cgray3 mr-ubf1">2016-02-15 18:30</div>
-          <div class="cbule mr-vd-btn-huifu1">回复</div>
-        </div>
-        <div class="mr-vd-textarea2 hide">
-          <textarea maxlength="300" class="cgray3 fs30 sizing mr-vd-textarea">说点什么吧…</textarea>
-          <div class="mr-ub mr-upe"><span class="cgray3 fs28">0/300字数</span> <a href="#"
-                                                                                class="mr-vd-btn-huifu fs30">回复</a> <a
-              href="#" class="mr-vd-btn-quxiao fs30">取消</a></div>
-        </div>
-      </div>
-    </li>
-  </ul>
-</section>
+  <div style="position:relative;">
+    <div class="face-box textarea"></div>
+  </div>
+
+  <h4 class="page-header">使用html5的contenteditable属性的输入框</h4>
+  <div>
+    <textarea class="face-contenteditable-textarea" placeholder="请选择表情和输入文字"></textarea>
+  </div>
+  <div style="display:inline-block;">
+    <a href="javascript:;" class="ub uac face-btn contenteditable">
+      <img src="qqface/face/0.png">
+      <div>添加表情</div>
+    </a>
+  </div>
+  <div style="position:relative;">
+    <div class="face-box contenteditable"></div>
+  </div>
+
+  <h4 class="page-header">输出的文本转换成表情</h4>
+  <p class="qqface">这个是\微笑\撇嘴\色\发呆输出后的表情</p>
+</div>
 <script>
   //输入框
-  $('.sl-vd-facebox').qqface({
-    facebtn: '.sl-vd-facebtn', //触发表情列表打开的按钮
-    textarea: '.mr-vd-textarea', //表情的输入框
+  $('.face-box.textarea').qqface({
+    facebtn: '.face-btn.textarea', //触发表情列表打开的按钮
+    textarea: '.face-textarea', //表情的输入框
     imgPath: 'qqface/face/', //表情的路径
-    contenteditable: true //是否使用html5的contenteditable属性
+    contenteditable: false, //是否使用html5的contenteditable属性
   });
-  //输出的文本替换成表情图片
-  $('.qqface').qqfaceimg({
-    size: '1rem', //表情的大小
+  //使用html5的contenteditable属性的输入框
+  $('.face-box.contenteditable').qqface({
+    facebtn: '.face-btn.contenteditable', //触发表情列表打开的按钮
+    textarea: '.face-contenteditable-textarea', //表情的输入框
     imgPath: 'qqface/face/', //表情的路径
-    imgclass: 'mr-qqface' //表情的自定义class
+    contenteditable: true, //是否使用html5的contenteditable属性
+  });
+  //输出的文本替换成表情
+  $('.qqface').qqfaceimg({
+    size: '1.5em', //表情的大小
+    imgPath: 'qqface/face/', //表情的路径
+    imgclass: 'diy-qqface', //表情的自定义class
   });
 </script>
 </body>
